@@ -2,7 +2,7 @@
 
 > Do not build this on Windows!
 
-[![Release](https://github.com/opentosca/opentosca-vintner/actions/workflows/release.yaml/badge.svg?branch=main)](https://github.com/opentosca/opentosca-vintner/actions/workflows/release.yaml)
+[![Release](https://github.com/opentosca/opentosca-shop-demo/actions/workflows/release.yaml/badge.svg?branch=main)](https://github.com/opentosca/opentosca-vintner/actions/workflows/release.yaml)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![OpenTOSCA](https://img.shields.io/badge/OpenTOSCA-%E2%9D%A4%EF%B8%8F-blue)](https://opentosca.org)
 [![docker](https://img.shields.io/badge/docker-ghcr.io-blue)](https://github.com/OpenTOSCA/opentosca-shop-demo/pkgs/container/opentosca-shop-demo)
