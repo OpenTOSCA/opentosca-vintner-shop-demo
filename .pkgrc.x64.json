@@ -1,0 +1,10 @@
+{
+  "name": "shop",
+  "pkg": {
+    "targets": [
+      "node16-linux-x64"
+    ],
+    "outputPath": "dist",
+    "assets": ["/node_modules/sqlite3/lib/binding/napi-v6-linux-glibc-x64/node_sqlite3.node"]
+  }
+}

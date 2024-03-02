@@ -1,0 +1,33 @@
+{
+  "name": "opentosca-shop-demo",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "build:binary:x64": "pkg --config .pkgrc.x64.json index.js",
+    "build:binary:arm": "pkg --config .pkgrc.arm.json index.js",
+
+    "package:binary:xz": "cd dist && tar -cJf shop.binary.xz shop",
+    "package:binary:tar:gz": "cd dist && tar -czf shop.binary.tar.gz shop",
+    "package:binary:zip": "cd dist && zip shop.binary.zip shop",
+
+    "package:source:xz": "tar -cJf shop.source.xz index.js package.json package-lock.json && mkdir -p dist && mv shop.source.xz dist/",
+    "package:source:tar:gz": "tar -czf shop.source.tar.gz index.js package.json package-lock.json && mkdir -p dist && mv shop.source.tar.gz dist/",
+    "package:source:zip": "zip shop.source.zip index.js package.json package-lock.json && mkdir -p dist && mv shop.source.zip dist/",
+
+    "package:source:standalone:xz": "tar -cJf shop.source.standalone.xz node_modules index.js package.json package-lock.json && mkdir -p dist && mv shop.source.standalone.xz dist/",
+    "package:source:standalone:tar:gz": "tar -czf shop.source.standalone.tar.gz node_modules index.js package.json package-lock.json && mkdir -p dist && mv shop.source.standalone.tar.gz dist/",
+    "package:source:standalone:zip": "zip -q -r shop.source.standalone.zip node_modules index.js package.json package-lock.json && mkdir -p dist && mv shop.source.standalone.zip dist/"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1",
+    "sqlite3": "^5.0.8"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.0"
+  }
+}
