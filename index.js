@@ -20,6 +20,9 @@ const DB_PASSWORD = process.env.DB_PASSWORD
 const DB_ADDRESS = process.env.DB_ADDRESS
 const DB_PORT = process.env.DB_PORT
 
+const FEATURE_OPTIONAL = process.env.FEATURE_OPTIONAL === "true"
+const FEATURE_PREMIUM = process.env.FEATURE_PREMIUM === "true"
+
 let sequelize;
 
 if (DB_DIALECT === 'memory') {
@@ -65,6 +68,8 @@ index.get('/', async (req, res) => {
         DB_NAME,
         DB_USERNAME,
         DB_PASSWORD: anonymize(DB_PASSWORD),
+        FEATURE_OPTIONAL,
+        FEATURE_PREMIUM
     })
 });
 
