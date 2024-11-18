@@ -1,5 +1,5 @@
 {
-  "name": "opentosca-shop-demo",
+  "name": "opentosca-vintner-shop-demo",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=18.0.0"

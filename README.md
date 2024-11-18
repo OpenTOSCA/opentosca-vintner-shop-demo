@@ -1,14 +1,14 @@
-# OpenTOSCA Shop Demo
+# OpenTOSCA Vintner Shop Demo
 
 > Do not build this on Windows!
 
-[![Release](https://github.com/OpenTOSCA/opentosca-shop-demo/actions/workflows/release.yaml/badge.svg)](https://github.com/OpenTOSCA/opentosca-shop-demo/actions/workflows/release.yaml)
+[![Release](https://github.com/OpenTOSCA/opentosca-vintner-shop-demo/actions/workflows/release.yaml/badge.svg)](https://github.com/OpenTOSCA/opentosca-vintner-shop-demo/actions/workflows/release.yaml)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![OpenTOSCA](https://img.shields.io/badge/OpenTOSCA-%E2%9D%A4%EF%B8%8F-blue)](https://opentosca.org)
-[![docker](https://img.shields.io/badge/docker-ghcr.io-blue)](https://github.com/OpenTOSCA/opentosca-shop-demo/pkgs/container/opentosca-shop-demo)
+[![docker](https://img.shields.io/badge/docker-ghcr.io-blue)](https://github.com/OpenTOSCA/opentosca-vintner-shop-demo/pkgs/container/opentosca-vintner-shop-demo)
 [![BMWK](https://img.shields.io/badge/BMWK-SofDCar%20(19S21002)-blue.svg)](https://sofdcar.de)
 
-OpenTOSCA Shop Demo is a simple Node.js application demonstrating a component connecting to a database.
+OpenTOSCA Vintner Shop Demo is a simple Node.js application demonstrating a component connecting to a database.
 
 ## Getting Started 
 
