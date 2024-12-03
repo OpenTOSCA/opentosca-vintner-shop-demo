@@ -1,0 +1,23 @@
+services:
+  shop:
+    build: .
+    environment:
+      PORT: 80
+      DB_DIALECT: "'mysql'"
+      DB_NAME: "database"
+      DB_USERNAME: "user"
+      DB_PASSWORD: "password"
+      DB_ADDRESS: "dbms"
+      DB_PORT: 3306
+      FEATURE_OPTIONAL: "true"
+      FEATURE_PREMIUM: "true"
+    ports:
+      - "8080:80"
+
+  dbms:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_DATABASE: "database"

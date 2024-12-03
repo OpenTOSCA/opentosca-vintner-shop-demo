@@ -8,20 +8,20 @@ require('sqlite3')
 require('mysql2')
 
 
-const APP_PORT = Number(process.env.PORT) || 80
-const APP_INTERFACE = process.env.INTERFACE || '0.0.0.0'
+const APP_PORT = Number(cleanString(process.env.PORT) ?? 80)
+const APP_INTERFACE = cleanString(process.env.INTERFACE) ?? '0.0.0.0'
 
-const DB_DIALECT = process.env.DB_DIALECT || "memory"
-if (!['memory', 'sqlite', 'mysql'].includes(DB_DIALECT)) throw `DB_DIALECT ${DB_DIALECT} is not supported`
+const DB_DIALECT = cleanString(process.env.DB_DIALECT)
+if (!['memory', 'sqlite', 'mysql'].includes(DB_DIALECT)) throw `DB_DIALECT "${DB_DIALECT}" is not supported`
 
-const DB_NAME = process.env.DB_NAME
-const DB_USERNAME = process.env.DB_USERNAME
-const DB_PASSWORD = process.env.DB_PASSWORD
-const DB_ADDRESS = process.env.DB_ADDRESS
-const DB_PORT = process.env.DB_PORT
+const DB_NAME = cleanString(process.env.DB_NAME)
+const DB_USERNAME = cleanString(process.env.DB_USERNAME)
+const DB_PASSWORD = cleanString(process.env.DB_PASSWORD)
+const DB_ADDRESS = cleanString(process.env.DB_ADDRESS)
+const DB_PORT = Number(cleanString(process.env.DB_PORT))
 
-const FEATURE_OPTIONAL = process.env.FEATURE_OPTIONAL === "true"
-const FEATURE_PREMIUM = process.env.FEATURE_PREMIUM === "true"
+const FEATURE_OPTIONAL = isEnabled(cleanString(process.env.FEATURE_OPTIONAL))
+const FEATURE_PREMIUM = isEnabled(cleanString(process.env.FEATURE_PREMIUM))
 
 let sequelize;
 
@@ -59,7 +59,7 @@ index.get('/', async (req, res) => {
     }
 
     res.status(error ? 500 : 200).json({
-        MESSAGE: error ? 'Some error occurred' : "Successfully executed query",
+        MESSAGE: error ? 'Some error occurred' : 'Successfully executed query',
         QUERY,
         ERROR: error,
         DB_DIALECT,
@@ -81,6 +81,22 @@ function anonymize(password) {
         console.log(e)
         return e
     }
+}
+
+function cleanString(value) {
+    if (value === undefined) return undefined
+    if (value === null) return undefined
+
+    let s = String(value)
+    if (s.startsWith('"') && s.endsWith('"') || s.startsWith("'") && s.endsWith("'")) {
+        s = s.slice(1, -1)
+    }
+
+    return s
+}
+
+function isEnabled(value) {
+    return ['true', true, 'True', 1, '1'].includes(value)
 }
 
 index.listen(APP_PORT, APP_INTERFACE, () => {
